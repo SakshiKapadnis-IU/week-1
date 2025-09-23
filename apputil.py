@@ -1,4 +1,3 @@
-# apputil.py
 
 def palindrome(word: str) -> bool:
     """
