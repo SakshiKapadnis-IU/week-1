@@ -1,9 +1,15 @@
-def palindrome(word: str) -> bool:
+def parentheses(s: str) -> bool:
     """
-    Check if the input string is a palindrome.
-    Ignores spaces, punctuation, and is case-insensitive.
+    Check if the parentheses in the string are balanced.
+    Only '(' and ')' are considered.
+    Returns True if balanced, False otherwise.
     """
-    # Remove spaces and punctuation, convert to lowercase
-    cleaned = ''.join(c.lower() for c in word if c.isalnum())
-    # Check if cleaned string equals its reverse
-    return cleaned == cleaned[::-1]
+    stack = []
+    for char in s:
+        if char == '(':
+            stack.append(char)
+        elif char == ')':
+            if not stack:  # No matching '('
+                return False
+            stack.pop()
+    return len(stack) == 0  # True if all '(' matched
