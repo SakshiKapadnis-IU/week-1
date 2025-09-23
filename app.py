@@ -1,15 +1,10 @@
-def parentheses(s: str) -> bool:
+# apputil.py
+
+def palindrome(word: str) -> bool:
     """
-    Check if the parentheses in the string are balanced.
-    Only '(' and ')' are considered.
-    Returns True if balanced, False otherwise.
+    Check if the input string is a palindrome.
+    Ignores spaces, punctuation, and is case-insensitive.
     """
-    stack = []
-    for char in s:
-        if char == '(':
-            stack.append(char)
-        elif char == ')':
-            if not stack:  # No matching '('
-                return False
-            stack.pop()
-    return len(stack) == 0  # True if all '(' matched
+    # Keep only alphanumeric characters, lowercase
+    cleaned = ''.join(c.lower() for c in word if c.isalnum())
+    return cleaned == cleaned[::-1]
