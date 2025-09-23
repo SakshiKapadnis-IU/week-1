@@ -1,21 +1,9 @@
-import streamlit as st
-
-from apputil import *
-
-
-st.write(
-'''
-# Week x: [Title]
-
-...
-''')
-
-# currently set for integer input
-amount = st.number_input("Exercise Input: ", 
-                         value=None, 
-                         step=1, 
-                         format="%d")
-
-if amount is not None:
-    st.write(f"The exercise input was {amount}.")
-
+def palindrome(word: str) -> bool:
+    """
+    Check if the input string is a palindrome.
+    Ignores spaces, punctuation, and is case-insensitive.
+    """
+    # Remove spaces and punctuation, convert to lowercase
+    cleaned = ''.join(c.lower() for c in word if c.isalnum())
+    # Check if cleaned string equals its reverse
+    return cleaned == cleaned[::-1]
