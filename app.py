@@ -1,5 +1,3 @@
-# apputil.py
-
 def palindrome(word: str) -> bool:
     """
     Check if the input string is a palindrome.
